@@ -6,38 +6,10 @@ public class StudentGradeTest {
     private final StudentGrade studentGrade =
             new StudentGrade();
 
-    @Test
-    void testGradeA() {
-        assertEquals("A",
-                studentGrade.calculateGrade(85));
-    }
+    // Pengujian method calculateGrade()
 
     @Test
-    void testGradeB() {
-        assertEquals("B",
-                studentGrade.calculateGrade(75));
-    }
-
-    @Test
-    void testGradeC() {
-        assertEquals("C",
-                studentGrade.calculateGrade(65));
-    }
-
-    @Test
-    void testGradeD() {
-        assertEquals("D",
-                studentGrade.calculateGrade(55));
-    }
-
-    @Test
-    void testGradeE() {
-        assertEquals("E",
-                studentGrade.calculateGrade(40));
-    }
-
-    @Test
-    void testScoreTidakValid() {
+    void testScoreKurangDariNol() {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> studentGrade.calculateGrade(-1)
@@ -45,18 +17,74 @@ public class StudentGradeTest {
     }
 
     @Test
+    void testScoreLebihDari100() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> studentGrade.calculateGrade(101)
+        );
+    }
+
+    @Test
+    void testGradeA() {
+        assertEquals(
+                "A",
+                studentGrade.calculateGrade(85)
+        );
+    }
+
+    @Test
+    void testGradeB() {
+        assertEquals(
+                "B",
+                studentGrade.calculateGrade(75)
+        );
+    }
+
+    @Test
+    void testGradeC() {
+        assertEquals(
+                "C",
+                studentGrade.calculateGrade(65)
+        );
+    }
+
+    @Test
+    void testGradeD() {
+        assertEquals(
+                "D",
+                studentGrade.calculateGrade(55)
+        );
+    }
+
+    @Test
+    void testGradeE() {
+        assertEquals(
+                "E",
+                studentGrade.calculateGrade(40)
+        );
+    }
+
+    // Pengujian method isPassed()
+
+    @Test
     void testLulus() {
-        assertTrue(studentGrade.isPassed(70));
+        assertTrue(
+                studentGrade.isPassed(70)
+        );
     }
 
     @Test
     void testBatasMinimalLulus() {
-        assertTrue(studentGrade.isPassed(60));
+        assertTrue(
+                studentGrade.isPassed(60)
+        );
     }
 
     @Test
     void testTidakLulus() {
-        assertFalse(studentGrade.isPassed(59));
+        assertFalse(
+                studentGrade.isPassed(59)
+        );
     }
 
     @Test
